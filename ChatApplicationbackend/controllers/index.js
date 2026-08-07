@@ -47,7 +47,7 @@ export const register = async (req, res) =>{
        
              const publickey = await bcrypt.genSalt(20);
        //       console.log(publickey);
-       const compresesedBuffer = ""
+       let compresesedBuffer = ""
        if(req.file){
         compresesedBuffer = await sharp(req?.file?.buffer)
        .resize({width:400})
