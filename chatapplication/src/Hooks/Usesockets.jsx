@@ -25,6 +25,7 @@ export const useSockets = () => {
     };
     const handlePendingMsgs = (msgs) => {
       dispatch(handlependingMsgs({msgs}));
+      console.log("pen sockey",msgs)
     };
   
     socket.on("reply", handleReply);

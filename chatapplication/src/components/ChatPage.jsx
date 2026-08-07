@@ -37,10 +37,10 @@ function ChatPage({
     <div className="w-full h-full flex flex-col">
       <div
         className={`${
-          selectedChat?.user?.name || selectedChat?.name ? "flex" : "hidden"
+          selectedChat?.user?.name?.trim() || selectedChat?.name?.trim() ? "flex" : "hidden"
         }  h-fit justify-between  shadow-[inset_var(--shadow)] `}
       >
-        <div className="text-[var(--text)] flex items-center max-w-9/16">
+        <div className="text-[var(--text)] flex items-center max-w-[80%] md:max-w-9/16 pt-2">
           <button
             onClick={() => setIsChatOpen(false)}
             className="lg:hidden p-2 aspect-square rounded-full hover:bg-[var(--bg)] group transition-all ease-in-out duration-150 flex justify-center items-center"
@@ -56,7 +56,7 @@ function ChatPage({
               alt="profile"
               src={selectedChat?.profile}
               loading="lazy"
-              className="w-12 aspect-square rounded-full border aspect-square  m-2 mx-4"
+              className="w-12 aspect-square rounded-full border aspect-square  m-2 mx-4 "
             />
           ) : (
             <DefaultuserProfile
@@ -65,7 +65,7 @@ function ChatPage({
               }
             />
           )}
-          <span className="text-3xl line-clamp-1 tracking-tight">
+          <span className="md:text-3xl line-clamp-1 tracking-tight">
             {selectedChat?.user?.name ||
               selectedChat?.name ||
               "click a contact to start chat"}
@@ -112,7 +112,7 @@ function ChatPage({
       {/* chat section */}
       <div
         ref={chatpageref}
-        className="scrollbar-thin  scrollbar-thumb-[#5cc0bb] scrollbar-track-transparent scrollbar-sc flex flex-col gap-6 w-full  px-12 py-6 h-full overflow-y-scroll "
+        className="scrollbar-thin  scrollbar-thumb-[#5cc0bb] scrollbar-track-transparent overflow-x-hidden flex flex-col gap-6 w-full  px-12 py-6 h-full overflow-y-scroll "
       >
         {messages?.map((m, index) => (
           <div

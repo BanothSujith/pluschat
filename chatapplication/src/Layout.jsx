@@ -18,10 +18,13 @@ function Layout() {
 const [selectedChat, setSelectedChat] = useState({});
 const [isChatOpen, setIsChatOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-
+ const [windowSize, setWindowSize] = useState(window.innerWidth)
 useSockets();
- socket.connect();
-const navigate = useNavigate();
+ try {
+  socket.connect();
+ } catch (error) {
+  useNavigate("/login")
+ }
 const dispatch = useDispatch();
 const searchUserRef = useRef(null);
   const handleDrag = (event, info) => {
@@ -29,7 +32,20 @@ const searchUserRef = useRef(null);
     const newWidth = Math.min(Math.max(percentage, 25), 45);
     setWidth(newWidth);
   };
+   useEffect(() => {
+     function handleResize() {
+       setWindowSize( window.innerWidth);
+     }
+
+     window.addEventListener("resize", handleResize);
+
+     // cleanup
+     return () => {
+       window.removeEventListener("resize", handleResize);
+     };
+   }, []);
 useEffect(() => {
+   
   setUsers(allUsers);
 }, [allUsers, isChatOpen]);
 useEffect( () => {
@@ -76,7 +92,7 @@ function handleSearch(e) {
       <div
         className={` ${isChatOpen ? "hidden lg:flex" : "flex "} flex-col overflow-hidden `}
         style={{
-          width: `${!isChatOpen && window.innerWidth < 980 ? "100" : width}%`,
+          width: `${!isChatOpen && windowSize < 980 ? "100" : width}%`,
         }}
       >
         <div className=" p-3 pb-0  text-[clamp(1.5rem,2.5vw,4rem)] poppins font-bold tracking-wider">

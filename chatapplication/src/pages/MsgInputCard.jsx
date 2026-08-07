@@ -6,7 +6,6 @@ import { socket } from '../utils/socket.js';
 function MsgInputCard({ selectedChat, chatpageref }) {
   const [message, setmessage] = useState("");
   const dispatch = useDispatch();
-  console.log(selectedChat)
   const handlesubmit = (e) => {
     e.preventDefault();
     // console.log(message);

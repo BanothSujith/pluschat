@@ -19,7 +19,6 @@ const chatappslice = createSlice({
   reducers: {
     setmsg: (state, action) => {
       const payload = action.payload;
-      console.log("payload", payload)
       state.msg[payload.msg_id] = {
         receiver: {
           publicKey: payload.receiver.publicKey,
@@ -80,6 +79,7 @@ const chatappslice = createSlice({
       localStorage.setItem("msg", JSON.stringify(state.msg));
     },
     handlependingMsgs: (state, action) => {
+      console.log("pending". action?.payload)
       const { data } = action?.payload?.msgs;
       const pendingMessages = data?.response;
       const statusResponse = data?.statusResponse;

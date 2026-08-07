@@ -43,7 +43,7 @@ function MsgCard({ m }) {
   return (
     <div
       ref={msgRef}
-      className={`flex justify-between items-center gap-1 bg-[var(--bg)] py-1 pl-4 pr-1.5 w-fit max-w-[50%] ${
+      className={`flex justify-between items-center gap-1 bg-[var(--bg)] py-1 p-4  w-fit max-w-[90%] md:max-w-[70%]   ${
         m?.msgType === "sent"
           ? "rounded-b-[5px] rounded-l-[5px]"
           : "justify-start rounded-b-[5px] rounded-r-[5px]"

@@ -43,7 +43,7 @@ export const socketshandler = async (socket) => {
 
         // Check if receiver is online
         const receiverSockets = await socket.in(receiverKey).fetchSockets();
-                 console.log("receiverKey",receiverKey);
+                 console.log("receiverKey", receiverSockets);
 
         if (receiverSockets.length > 0) {
           //  Send to receiver
