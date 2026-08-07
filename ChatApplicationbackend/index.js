@@ -26,8 +26,7 @@ const io = new Server(server, {
       "http://192.168.31.237:5173",
       "https://192.168.31.237:5173",
       "http://127.0.0.1:5173",
-      "pluschat-e7u21ypt1-banoth-sujiths-projects.vercel.app",
-      "https://pluschat.vercel.app/",
+      "https://pluschat.vercel.app",
     ],
     credentials: true,
   },
@@ -38,8 +37,7 @@ const allowedOrigins = [
   "http://192.168.31.237:5173",
   "https://192.168.31.237:5173",
   "http://127.0.0.1:5173",
-  "pluschat-e7u21ypt1-banoth-sujiths-projects.vercel.app",
-  "https://pluschat.vercel.app/",
+  "https://pluschat.vercel.app",
 ];
 
 app.use(
