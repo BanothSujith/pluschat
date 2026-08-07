@@ -173,8 +173,8 @@ export const login = async (req,res)=>{
            );
          res.cookie("token", JWTtoken, {
            httpOnly: true,
-           secure: false, // true in production with HTTPS
-           sameSite: "lax", // or "none" if using HTTPS and cross-site
+           secure: true, // true in production with HTTPS
+           sameSite: "none", // or "none" if using HTTPS and cross-site
          });
          const profile = userProfile?.data?.toString("base64");
          return sendresponse(
