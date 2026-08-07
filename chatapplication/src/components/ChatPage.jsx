@@ -40,7 +40,7 @@ function ChatPage({
           selectedChat?.user?.name?.trim() || selectedChat?.name?.trim() ? "flex" : "hidden"
         }  h-fit justify-between  shadow-[inset_var(--shadow)] `}
       >
-        <div className="text-[var(--text)] flex items-center max-w-[80%] md:max-w-9/16 pt-2">
+        <div className="text-[var(--text)] flex items-center w-full border  pt-2">
           <button
             onClick={() => setIsChatOpen(false)}
             className="lg:hidden p-2 aspect-square rounded-full hover:bg-[var(--bg)] group transition-all ease-in-out duration-150 flex justify-center items-center"
