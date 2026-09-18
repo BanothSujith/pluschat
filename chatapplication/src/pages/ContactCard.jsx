@@ -4,13 +4,13 @@ import DefaultuserProfile from './DefaultuserProfile';
 function ContactCard({data}) {
   // console.log("data",data);
   return (
-    <div className=" w-full h-fit text-[var(--text)] bg-[var(--card)] flex items-center ">
+    <div className="w-full h-fit text-[var(--text)] bg-[var(--card)] flex items-center ">
       <div className=" ">
         {data?.profile && data?.profile !== "data:image/webp;base64," ? (
           <img
             src={data?.profile}
             alt="profile"
-            className="w-12 aspect-square rounded-full m-2 border"
+            className="min-w-12 max-w-12 aspect-square rounded-full m-2 border"
           />
         ) : (
           <DefaultuserProfile
